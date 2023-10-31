@@ -44,6 +44,7 @@ input:focus + .input-icon:after {
 input[type="radio"] {
   display: none;
 }
+
 input[type="radio"] + label,
 select {
   display: inline-block;
@@ -52,6 +53,11 @@ select {
   float: left;
   border-radius: 0;
 }
+
+.input-group.smoke input[type="radio"] + label {
+  width: 33.333333333%;
+}
+
 input[type="radio"] + label:first-of-type {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
