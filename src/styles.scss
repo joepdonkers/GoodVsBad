@@ -28,17 +28,7 @@ body, h1, h2, h3, p {
   }
   
   /* Add some basic styles for buttons */
-  button, .btn {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
-  
-  button:hover, .btn:hover {
-    background-color: #0056b3;
-  }
+
   
   /* Add a subtle box shadow to elements */
   .box-shadow {
@@ -58,5 +48,11 @@ body, h1, h2, h3, p {
     margin-bottom: 10px; /* Adjust as needed for spacing */
   }
 
-  .container {
-  } 
+
+  body {
+    background-image: url('/assets/bgimage.png');
+    background-size: cover; /* Adjust this to fit your design */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  

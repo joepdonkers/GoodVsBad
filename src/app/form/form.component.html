@@ -3,13 +3,13 @@
     <div class="row">
       <h1>Health Assessment Form</h1>
     </div>
+
     <div class="row">
       <div class="col-half">
         <h4>What is your age</h4>
         <div class="input-group input-group-icon">
           <div class="col-full">
-            
-            <input type="text" placeholder="Age"  />
+            <input type="text" placeholder="Age" formControlName="age" />
             <div class="input-icon">
               <i class="fa fa-credit-card"></i>
             </div>
@@ -19,9 +19,21 @@
       <div class="col-half">
         <h4>Biological Gender</h4>
         <div class="input-group">
-          <input id="gender-male" type="radio" name="gender" value="male" />
+          <input
+            id="gender-male"
+            type="radio"
+            name="gender"
+            formControlName="gender"
+            value="male"
+          />
           <label for="gender-male">Male</label>
-          <input id="gender-female" type="radio" name="gender" value="female" />
+          <input
+            id="gender-female"
+            type="radio"
+            name="gender"
+            formControlName="gender"
+            value="female"
+          />
           <label for="gender-female">Female</label>
         </div>
       </div>
@@ -34,6 +46,7 @@
           type="radio"
           name="payment-method"
           value="yes"
+          formControlName="hypertension"
         />
         <label for="hyper1">
           <span>
@@ -46,7 +59,7 @@
           type="radio"
           name="payment-method"
           value="no"
-          checked="true"
+          formControlName="hypertension"
         />
         <label for="hyper2">
           <span>
@@ -62,6 +75,7 @@
           type="radio"
           name="heart"
           value="yes"
+          formControlName="heartDisease"
         />
         <label for="heart1">
           <span>
@@ -74,7 +88,7 @@
           type="radio"
           name="heart"
           value="no"
-          checked="true"
+          formControlName="heartDisease"
         />
         <label for="heart2">
           <span>
@@ -90,6 +104,7 @@
           type="radio"
           name="smoke"
           value="yes"
+          formControlName="smoke"
         />
         <label for="smoke1">
           <span>
@@ -102,7 +117,7 @@
           type="radio"
           name="smoke"
           value="no"
-          checked="true"
+          formControlName="smoke"
         />
         <label for="smoke2">
           <span>
@@ -115,6 +130,7 @@
           type="radio"
           name="smoke"
           value="in the past"
+          formControlName="smoke"
         />
         <label for="smoke3">
           <span>
@@ -123,48 +139,49 @@
           </span>
         </label>
       </div>
-      </div>
-      <div class="row">
-        <div class="col-half">
-          <h4>What is your BMI</h4>
-          <div class="input-group input-group-icon">
-            <div class="col-full">
-              
-              <input type="text" placeholder="BMI"  />
-              <div class="input-icon">
-                <i class="fa fa-credit-card"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-half">
-          <h4>HbA1C Level</h4>
-          <div class="input-group input-group-icon">
-            <div class="col-full">
-              
-              <input type="text" placeholder="HbA1C"  />
-              <div class="input-icon">
-                <i class="fa fa-credit-card"></i>
-              </div>
+    </div>
+    <div class="row">
+      <div class="col-half">
+        <h4>What is your BMI</h4>
+        <div class="input-group input-group-icon">
+          <div class="col-full">
+            <input type="text" formControlName="bmi" placeholder="BMI" />
+            <div class="input-icon">
+              <i class="fa fa-credit-card"></i>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-half">
-          <h4>Blood Glucose Level</h4>
-          <div class="input-group input-group-icon">
-            <div class="col-full">
-              
-              <input type="text" placeholder="Blood Glucose Level"  />
-              <div class="input-icon">
-                <i class="fa fa-credit-card"></i>
-              </div>
+      <div class="col-half">
+        <h4>HbA1C Level</h4>
+        <div class="input-group input-group-icon">
+          <div class="col-full">
+            <input type="text" formControlName="hba1c" placeholder="HbA1C" />
+            <div class="input-icon">
+              <i class="fa fa-credit-card"></i>
             </div>
           </div>
         </div>
-        <div class="col-half"></div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-half">
+        <h4>Blood Glucose Level</h4>
+        <div class="input-group input-group-icon">
+          <div class="col-full">
+            <input
+              type="text"
+              formControlName="glucoseLevel"
+              placeholder="Blood Glucose Level"
+            />
+            <div class="input-icon">
+              <i class="fa fa-credit-card"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-half"></div>
+    </div>
     <div class="row">
       <h4>Terms and Conditions</h4>
       <div class="input-group">
@@ -175,9 +192,89 @@
         >
       </div>
     </div>
-    <button type="submit" class="mt-4 btn btn-danger">Submit</button> 
+    <!-- Age -->
+    <div
+      *ngIf="
+        healthForm?.get('age')?.touched &&
+        healthForm.get('age')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Age is required</h5>
+    </div>
+
+    <!-- Biological Gender -->
+    <div
+      *ngIf="
+        healthForm?.get('gender')?.touched &&
+        healthForm.get('gender')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Gender is required</h5>
+    </div>
+
+    <!-- Hypertension -->
+    <div
+      *ngIf="
+        healthForm?.get('hypertension')?.touched &&
+        healthForm.get('hypertension')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Hypertension is required</h5>
+    </div>
+
+    <!-- Heart Disease -->
+    <div
+      *ngIf="
+        healthForm?.get('heartDisease')?.touched &&
+        healthForm.get('heartDisease')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Heart Disease is required</h5>
+    </div>
+
+    <!-- Smoking Status -->
+    <div
+      *ngIf="
+        healthForm?.get('smoke')?.touched &&
+        healthForm.get('smoke')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Smoking status is required</h5>
+    </div>
+
+    <!-- BMI -->
+    <div
+      *ngIf="
+        healthForm?.get('bmi')?.touched &&
+        healthForm.get('bmi')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! BMI is required</h5>
+    </div>
+
+    <!-- HbA1C Level -->
+    <div
+      *ngIf="
+        healthForm?.get('hba1c')?.touched &&
+        healthForm.get('hba1c')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! HbA1C Level is required</h5>
+    </div>
+
+    <!-- Blood Glucose Level -->
+    <div
+      *ngIf="
+        healthForm?.get('glucoseLevel')?.touched &&
+        healthForm.get('glucoseLevel')?.hasError('required')
+      "
+    >
+      <h5 class="text-danger">! Blood Glucose Level is required</h5>
+    </div>
+    <button type="submit" class="btn submitbutton mt-4" [class]="buttonClass" id="submitButton">Submit</button>
   </form>
+
   <div *ngIf="submitted" class="mt-3 alert alert-success">
     <strong>Success!</strong> Form submitted successfully!
-    </div>
+  </div>
 </div>
