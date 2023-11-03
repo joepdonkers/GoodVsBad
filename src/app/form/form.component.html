@@ -44,7 +44,7 @@
         <input
           id="hyper1"
           type="radio"
-          name="payment-method"
+          name="hypertension"
           value="yes"
           formControlName="hypertension"
         />
@@ -57,7 +57,7 @@
         <input
           id="hyper2"
           type="radio"
-          name="payment-method"
+          name="hypertension"
           value="no"
           formControlName="hypertension"
         />
@@ -73,7 +73,7 @@
         <input
           id="heart1"
           type="radio"
-          name="heart"
+          name="heartDisease"
           value="yes"
           formControlName="heartDisease"
         />
@@ -86,7 +86,7 @@
         <input
           id="heart2"
           type="radio"
-          name="heart"
+          name="heartDisease"
           value="no"
           formControlName="heartDisease"
         />
@@ -271,7 +271,9 @@
     >
       <h5 class="text-danger">! Blood Glucose Level is required</h5>
     </div>
+    <div class="row">
     <button type="submit" class="btn submitbutton mt-4" [class]="buttonClass" id="submitButton">Submit</button>
+    </div>
   </form>
 
   <div *ngIf="submitted" class="mt-3 alert alert-success">

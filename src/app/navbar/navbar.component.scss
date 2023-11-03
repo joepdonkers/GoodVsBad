@@ -14,7 +14,7 @@ li {
   float: left;
 }
 
-li a {
+.nav1 {
   display: block;
   color: white; /* Text color */
   text-align: center;
@@ -30,4 +30,10 @@ li a:hover {
 /* Optional: Add a smooth transition effect */
 li a {
   transition: background-color 0.3s;
+}
+
+.logo {
+  border-radius: 20%; /* This value makes it round (50% of the width/height) */
+  width: 50px; /* Adjust the width to your desired size */
+  height: 50px; /* Adjust the height to your desired size */
 }
