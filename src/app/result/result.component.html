@@ -1,0 +1,24 @@
+<div *ngIf="jsonData" class="container">
+    <div class="row">
+      <h1>Results</h1>
+    </div>
+  
+    <div class="row">
+      <div>
+        <h5>We can tell you with {{ (jsonData.certainty * 100).toFixed(2) }}% certainty</h5>
+        <h5>That <span class="underlined-text">{{ jsonData.predicted_class === 1 ? 'you have Diabetes' : 'you don\'t have Diabetes' }}</span></h5>
+    </div>
+    </div>
+  
+    <div *ngIf="jsonData.predicted_class === 1" class="row mt-3">
+      <div>
+        <!-- Display additional information for patients with diabetes here -->
+        <h3 class="subheader">Don't worry, here's what you can do now:</h3>
+        <ul>
+          <li>Follow a balanced diet.</li>
+          <li>Get regular exercise.</li>
+          <li>Consult a healthcare professional for further guidance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>

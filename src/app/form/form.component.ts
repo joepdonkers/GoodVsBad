@@ -49,20 +49,18 @@ export class FormComponent implements OnInit {
         blood_glucose_level: parseFloat(formData.glucoseLevel),
       };
       // Send the POST request
-      this.http
-        .post('http://167.99.38.252:5000/predict', requestBody)
-        .subscribe(
-          (response) => {
-            console.log('POST request successful:', response);
-            this.submitted = true;
-
-            // Navigate to the homepage after successful form submission
-            this.router.navigate(['/']); // Replace '/' with the actual route to your homepage
-          },
-          (error) => {
-            console.error('POST request error:', error);
-          }
-        );
+      this.http.post('http://167.99.38.252:5000/predict', requestBody).subscribe(
+        (response: any) => {
+          console.log('POST request successful:', response);
+          this.submitted = true;
+      
+          // Navigate to the results page and pass the JSON response data
+          this.router.navigate(['/result'], { queryParams: { data: JSON.stringify(response) }});
+        },
+        (error) => {
+          console.error('POST request error:', error);
+        }
+      );
     } else {
       // Mark the form controls as touched to display validation errors
       this.healthForm.markAllAsTouched();

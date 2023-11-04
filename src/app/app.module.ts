@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+import { ResultComponent } from './result/result.component';
 
 
 
@@ -20,7 +21,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     FormComponent,
     NavbarComponent,
-    AboutComponent
+    AboutComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
