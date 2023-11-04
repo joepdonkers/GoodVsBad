@@ -34,18 +34,37 @@
     margin-top: 10px;
   }
   
-  .submitbutton {
-    background-color: #1E4380;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+  .submitbutton,
+  .submitbutton2 {
+    width: 200px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
     margin-top: 20px;
   }
   
+  .submitbutton {
+    background-color: #1E4380;
+    color: white;
+    border: none;
+  }
+  
   .submitbutton a {
     color: white;
+    text-decoration: none;
+  }
+  
+  .submitbutton2 {
+    background-color: white;
+    color: #1E4380;
+    border: 2px solid #1E4380;
+  }
+  
+  .submitbutton2 a {
+    color: #1E4380;
     text-decoration: none;
   }
