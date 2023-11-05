@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
 
       // Map form data to match the expected request body
       const requestBody = {
-        gender: formData.gender === 'male' ? 'Male' : 'Female',
+        gender: formData.gender,
         age: parseFloat(formData.age),
         hypertension: formData.hypertension === 'yes' ? 1 : 0,
         heart_disease: formData.heartDisease === 'yes' ? 1 : 0,

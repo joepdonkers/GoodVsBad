@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
   jsonData: any;
+  text: any;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -21,11 +22,14 @@ export class ResultComponent implements OnInit {
     } else {
       return 'we are very certain that';
     }
+
   }
   ngOnInit() {
     // Retrieve the JSON data from the route parameter
     this.route.queryParams.subscribe((params) => {
       this.jsonData = JSON.parse(params['data']);
     });
+    
+    this.text = this.determineDiabetesText(this.jsonData.certainty)
   }
 }

@@ -14,3 +14,8 @@
 .underlined-text {
     text-decoration: underline;
   }
+
+.inline-p {
+  display: inline;
+  margin: 0; /* You can also remove any unwanted margin */
+}
